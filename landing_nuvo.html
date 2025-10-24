@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuvo ERP - Soluciones Tecnológicas y Automatización</title>
+    <!-- Font Awesome para íconos profesionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Fuente Inter (corporativa y legible) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --dark-blue: #12243B;
+            --light-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --bg-dark: #0A1628;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --hero-bg-color: #050B14;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(30, 64, 175, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .cta-button {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 5%;
+            background: var(--hero-bg-color);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.7) contrast(1.1) saturate(1.2);
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            margin-top: 80px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-text .highlight {
+            color: var(--accent-blue);
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--bg-dark);
+            border-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+            animation: float 8s ease-in-out infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-1 { top: 10%; left: 0; animation-delay: 0s; }
+        .card-2 { top: 45%; right: 10%; animation-delay: 2s; }
+        .card-3 { bottom: 10%; left: 15%; animation-delay: 4s; }
+        /* Ajuste: flotante "Página web" más arriba y a la derecha */
+        .card-4 { top: 5%; right: 30%; animation-delay: 1s; }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        /* ... (resto de estilos igual hasta catalog-page) ... */
+
+        /* Catalog Page - FULL INDEPENDENT PAGE */
+        #catalog-page {
+            display: none;
+            min-height: 100vh;
+            background: var(--hero-bg-color);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header solo con logo en catálogo */
+        #catalog-header {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+        }
+
+        #catalog-header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+            cursor: pointer;
+        }
+
+        .catalog-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.7);
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 5%;
+            position: relative;
+            z-index: 2;
+            margin-top: 80px; /* Para no solapar con el header fijo */
+        }
+
+        .catalog-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .catalog-header h1 {
+            font-size: 2.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .catalog-intro {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .catalog-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .catalog-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--accent-blue);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .catalog-btn:hover {
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        .catalog-content {
+            display: none;
+            text-align: center;
+        }
+
+        .catalog-content.active {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .catalog-image {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .catalog-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Resto de estilos (footer, responsive, etc.) igual */
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            z-index: 0;
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(to right, transparent 0%, transparent 40%, rgba(96, 165, 250, 0.8) 40%, rgba(96, 165, 250, 0.8) 60%, transparent 60%, transparent 100%),
+                linear-gradient(to right, transparent 0%, transparent 20%, rgba(30, 64, 175, 0.8) 20%, rgba(30, 64, 175, 0.8) 30%, transparent 30%, transparent 100%),
+                linear-gradient(to right, transparent 0%, transparent 70%, rgba(96, 165, 250, 0.8) 70%, rgba(96, 165, 250, 0.8) 80%, transparent 80%, transparent 100%),
+                linear-gradient(135deg, transparent 40%, rgba(96, 165, 250, 0.8) 40%, rgba(96, 165, 250, 0.8) 41%, transparent 41%),
+                linear-gradient(45deg, transparent 40%, rgba(30, 64, 175, 0.8) 40%, rgba(30, 64, 175, 0.8) 41%, transparent 41%),
+                linear-gradient(135deg, transparent 60%, rgba(96, 165, 250, 0.8) 60%, rgba(96, 165, 250, 0.8) 61%, transparent 61%),
+                linear-gradient(45deg, transparent 60%, rgba(30, 64, 175, 0.8) 60%, rgba(30, 64, 175, 0.8) 61%, transparent 61%);
+            background-size: 100% 1px, 100% 1px, 100% 1px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            background-position: 0 20%, 0 50%, 0 80%, 0 0, 0 0, 0 100%, 0 100%;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .services > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(28, 58, 138, 0.95) 100%);
+            padding: 5rem 5%;
+            color: white;
+            position: relative;
+        }
+
+        .stats-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.8);
+            opacity: 0.12;
+            z-index: 0;
+        }
+
+        .stats > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Demo Form Section */
+        .demo-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.97) 0%, rgba(13, 40, 71, 0.97) 100%);
+            color: white;
+            position: relative;
+        }
+
+        .demo-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.7);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .demo-container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .demo-container p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+        }
+
+        .demo-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group select {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group select option {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.4);
+            background: var(--accent-blue);
+            color: var(--bg-dark);
+        }
+
+        /* About Us Page */
+        .about-us-page {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.97) 0%, rgba(13, 40, 71, 0.97) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .about-us-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.7);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .about-us-page > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-us-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+
+        .about-us-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-us-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .about-us-header p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+        }
+
+        .about-us-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-us-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-us-text h2 {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-us-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-us-image {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .about-us-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(96, 165, 250, 0.2);
+        }
+
+        .commitment-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .commitment-section h2 {
+            font-size: 2rem;
+            color: var(--accent-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .commitment-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .commitment-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .commitment-item i {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        .commitment-item p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Footer */
+        footer {
+            background: #050b14;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            margin: 0.5rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2rem 0;
+            }
+            .hero-visual { display: none; }
+            .nav-links { display: none; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-text p { font-size: 1.05rem; }
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            .section-title { font-size: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-us-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .catalog-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .catalog-header h1 { font-size: 2.2rem; }
+            .catalog-intro { font-size: 1.1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.7rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .about-us-header h1 { font-size: 2.2rem; }
+            .catalog-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PÁGINA PRINCIPAL -->
+    <div id="main-page">
+        <header>
+            <nav>
+                <div class="logo" onclick="showMainPage()">NUVO ERP</div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#" onclick="showCatalogPage(); return false;">Catálogo</a></li>
+                    <li><a href="#acerca-de-nosotros">Acerca de Nosotros</a></li>
+                    <li><a href="#demo">Demostración</a></li>
+                </ul>
+                <a href="#demo" class="cta-button">Solicitar Demo</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="inicio">
+            <div class="hero-bg parallax-bg" data-speed="0.2" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transformamos tu negocio con <span class="highlight">tecnología inteligente</span></h1>
+                    <p>Soluciones tecnológicas y automatización de procesos diseñadas para impulsar la eficiencia y el crecimiento de tu empresa</p>
+                    <div class="hero-buttons">
+                        <a href="#demo" class="btn-primary">Solicitar Demostración</a>
+                        <a href="#servicios" class="btn-secondary">Conocer Más</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <h4>Automatización</h4>
+                        <p>Procesos optimizados</p>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>Análisis en tiempo real</h4>
+                        <p>Decisiones inteligentes</p>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Seguridad Total</h4>
+                        <p>Datos protegidos</p>
+                    </div>
+                    <div class="floating-card card-4">
+                        <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                        <h4>Página web</h4>
+                        <p>Presencia digital profesional</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="servicios">
+            <h2 class="section-title">Nuestras Soluciones</h2>
+            <p class="section-subtitle">Tecnología de vanguardia para cada necesidad de tu empresa</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Automatización de Procesos</h3>
+                    <p>Implementamos RPA y soluciones inteligentes que automatizan tareas repetitivas, reduciendo errores y liberando a tu equipo para actividades estratégicas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Sistema ERP Integral</h3>
+                    <p>Gestiona todas las áreas de tu empresa desde una plataforma única. Control total de inventarios, finanzas, ventas y recursos humanos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-trending-up"></i></div>
+                    <h3>Business Intelligence</h3>
+                    <p>Transforma datos en insights accionables. Dashboards intuitivos y reportes en tiempo real para la toma de decisiones estratégicas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>Soluciones Cloud</h3>
+                    <p>Accede a tu información desde cualquier lugar. Infraestructura escalable, segura y disponible 24/7 para tu negocio.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-link"></i></div>
+                    <h3>Integración de Sistemas</h3>
+                    <p>Conectamos todas tus herramientas tecnológicas existentes. Flujo de información sin interrupciones entre plataformas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Consultoría Tecnológica</h3>
+                    <p>Asesoramiento experto para diseñar la estrategia digital perfecta para tu empresa. Acompañamiento en cada etapa de la transformación.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Página web</h3>
+                    <p>Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para convertir. Tu puerta de entrada digital al mundo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-book"></i></div>
+                    <h3>Catálogo</h3>
+                    <p>Explora nuestras soluciones tecnológicas en detalle. Descubre cómo nuestros sistemas ERP y páginas web pueden transformar tu negocio.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stats-bg parallax-bg" data-speed="0.15" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80');"></div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2>+500</h2>
+                    <p>Empresas Transformadas</p>
+                </div>
+                <div class="stat-item">
+                    <h2>98%</h2>
+                    <p>Satisfacción del Cliente</p>
+                </div>
+                <div class="stat-item">
+                    <h2>60%</h2>
+                    <p>Reducción de Costos Operativos</p>
+                </div>
+                <div class="stat-item">
+                    <h2>24/7</h2>
+                    <p>Soporte Técnico</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section" id="demo">
+            <div class="demo-bg parallax-bg" data-speed="0.1" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');"></div>
+            <div class="demo-container">
+                <h2>Solicita una Demostración</h2>
+                <p>Descubre cómo Nuvo ERP puede transformar tu negocio. Agenda una demo personalizada con nuestros expertos.</p>
+                <form class="demo-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Corporativo *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono *</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sector">Sector / Industria *</label>
+                        <select id="sector" name="sector" required>
+                            <option value="">Seleccionar...</option>
+                            <option value="retail">Retail / Comercio</option>
+                            <option value="manufactura">Manufactura</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="tecnologia">Tecnología</option>
+                            <option value="salud">Salud</option>
+                            <option value="educacion">Educación</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="mensaje" name="mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Solicitar Demostración Gratuita</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="about-us-page" id="acerca-de-nosotros">
+            <div class="about-us-bg parallax-bg" data-speed="0.1" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');"></div>
+            <div class="about-us-container">
+                <div class="about-us-header">
+                    <h1>Acerca de Nuvo ERP</h1>
+                    <p>La historia de innovación y compromiso con tu éxito empresarial.</p>
+                </div>
+
+                <div class="about-us-content">
+                    <div class="about-us-text">
+                        <h2>Nuestra Historia</h2>
+                        <p>Fundada en 2025, Nuvo ERP nació con una visión clara: convertirse en el socio tecnológico de confianza para empresas que buscan transformarse, no solo digitalizarse. En un mundo donde la tecnología avanza a pasos agigantados, entendemos que la verdadera innovación no reside en adoptar la última tendencia, sino en aplicar soluciones tecnológicas de manera inteligente, personalizada y estratégica.</p>
+                        <p>Nuestro enfoque es profundamente humano. No somos simplemente proveedores de software; somos arquitectos de soluciones. Cada proyecto que emprendemos comienza con una profunda comprensión de tu negocio, sus desafíos únicos, su cultura y sus objetivos a largo plazo. Nuestra misión es empoderarte, dándote las herramientas y el conocimiento para que tú, como líder empresarial, puedas tomar decisiones informadas y construir un futuro sostenible y rentable.</p>
+                        <p>En Nuvo ERP, creemos que la tecnología debe ser invisible, pero su impacto debe ser inmenso. Diseñamos sistemas que se integran perfectamente en tu flujo de trabajo, eliminando fricciones y potenciando el talento de tu equipo. Nos especializamos en la personalización porque sabemos que no hay dos empresas iguales. Tu solución debe reflejar la singularidad de tu negocio.</p>
+                        <p>Desde nuestra fundación, hemos ayudado a más de 500 empresas a alcanzar nuevas alturas de eficiencia y crecimiento. Nuestro compromiso con la excelencia, la ética y la innovación continua nos ha convertido en un referente en el sector de la consultoría tecnológica y la automatización de procesos.</p>
+                    </div>
+                    <div class="about-us-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" alt="Equipo de Nuvo ERP trabajando en una solución personalizada">
+                    </div>
+                </div>
+
+                <div class="commitment-section">
+                    <h2>Nuestro Compromiso Contigo</h2>
+                    <ul class="commitment-list">
+                        <li class="commitment-item">
+                            <i class="fas fa-check-circle"></i>
+                            <p><strong>Innovación Continua:</strong> Te mantendremos a la vanguardia con las últimas tecnologías adaptadas a tus necesidades.</p>
+                        </li>
+                        <li class="commitment-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <p><strong>Seguridad Inquebrantable:</strong> Tus datos son nuestro mayor tesoro. Implementamos los protocolos de seguridad más estrictos del mercado.</p>
+                        </li>
+                        <li class="commitment-item">
+                            <i class="fas fa-headset"></i>
+                            <p><strong>Soporte 24/7:</strong> Nunca estás solo. Nuestro equipo de soporte está siempre disponible para resolver cualquier duda o problema.</p>
+                        </li>
+                        <li class="commitment-item">
+                            <i class="fas fa-users"></i>
+                            <p><strong>Colaboración Profunda:</strong> Trabajamos contigo como socios, no como proveedores, para entender y superar tus retos.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Nuvo ERP. Todos los derechos reservados. Soluciones tecnológicas y automatización de procesos.</p>
+            <p>Teléfono: 973758493 | Dirección: Torrez Paz 848 - Cercado de Lima</p>
+        </footer>
+    </div>
+
+    <!-- PÁGINA DE CATÁLOGO (INDEPENDIENTE) -->
+    <div id="catalog-page">
+        <header id="catalog-header">
+            <div class="logo" onclick="showMainPage()">NUVO ERP</div>
+        </header>
+        <div class="catalog-bg"></div>
+        <div class="catalog-container">
+            <div class="catalog-header">
+                <h1>Importancia de la Automatización y una Página Web</h1>
+            </div>
+            <div class="catalog-intro">
+                <p>
+                    En la actualidad, un <strong>sistema de automatización</strong> es esencial para optimizar operaciones, reducir errores humanos y escalar tu negocio de forma eficiente. Permite que tu equipo se enfoque en tareas estratégicas mientras la tecnología gestiona procesos repetitivos.
+                </p>
+                <p>
+                    Por otro lado, una <strong>página web profesional</strong> es tu tarjeta de presentación digital. Funciona las 24 horas, genera confianza, amplía tu alcance y convierte visitantes en clientes. Sin ella, tu empresa está invisible en el mundo digital.
+                </p>
+                <p>
+                    Explora nuestras soluciones especializadas:
+                </p>
+            </div>
+
+            <div class="catalog-buttons">
+                <button class="catalog-btn" onclick="showCatalogContent('erp')">Sistemas ERP</button>
+                <button class="catalog-btn" onclick="showCatalogContent('web')">Páginas Web</button>
+            </div>
+
+            <div id="erp-content" class="catalog-content">
+                <div class="catalog-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80" alt="Sistema ERP - Gestión empresarial integrada">
+                </div>
+            </div>
+
+            <div id="web-content" class="catalog-content">
+                <div class="catalog-image">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80" alt="Diseño de página web moderna">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para cambiar entre páginas
+        function showCatalogPage() {
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('catalog-page').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            document.getElementById('catalog-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+        }
+
+        function showCatalogContent(type) {
+            document.getElementById('erp-content').classList.remove('active');
+            document.getElementById('web-content').classList.remove('active');
+
+            if (type === 'erp') {
+                document.getElementById('erp-content').classList.add('active');
+            } else if (type === 'web') {
+                document.getElementById('web-content').classList.add('active');
+            }
+        }
+
+        // Scripts originales
+        document.addEventListener('DOMContentLoaded', () => {
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                parallaxElements.forEach(el => {
+                    const speed = parseFloat(el.getAttribute('data-speed')) || 0.2;
+                    el.style.transform = `translateY(${scrollTop * speed}px)`;
+                });
+            });
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.\n\nDatos recibidos:\n' +
+                  'Nombre: ' + document.getElementById('nombre').value + '\n' +
+                  'Email: ' + document.getElementById('email').value + '\n' +
+                  'Empresa: ' + document.getElementById('empresa').value);
+            event.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]:not([onclick])').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (document.getElementById('main-page').style.display === 'none') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '1rem 5%';
+                header.style.boxShadow = '0 2px 30px rgba(30, 64, 175, 0.2)';
+                header.style.background = 'rgba(0,0,0,0.9)';
+            } else {
+                header.style.padding = '1.5rem 5%';
+                header.style.boxShadow = '0 2px 20px rgba(30, 64, 175, 0.1)';
+                header.style.background = 'linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%)';
+            }
+        });
+    </script>
+</body>
+</html>
