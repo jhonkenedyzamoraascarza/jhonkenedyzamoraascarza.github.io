@@ -792,26 +792,36 @@
             .hamburger {
                 display: block;
             }
+            /* REDUCIENDO ALTURA DEL HEADER MÓVIL Y AUMENTANDO LOGO (NUEVOS AJUSTES) */
+            header {
+                padding: 0.8rem 5%; /* Reducir padding vertical del header */
+            }
+            header.scrolled {
+                 padding: 0.5rem 5%; /* Reducir aún más el padding al hacer scroll */
+            }
             .logo {
-                height: 85px; /* Aumentado desde 70px */
-                padding: 0.5rem 0; /* Reducido el padding interno */
+                height: 70px; /* Logo más grande en vista móvil por defecto */
+                padding: 0.3rem 0;
             }
             header.scrolled .logo {
-                height: 65px; /* Aumentado desde 55px */
-                padding: 0.3rem 0; /* Reducido el padding interno */
+                height: 60px; /* Logo más grande en vista móvil con scroll */
+                padding: 0.2rem 0;
             }
             #catalog-header .logo {
-                height: 85px;
+                height: 70px; /* Logo del catálogo igual */
             }
             #catalog-header.scrolled .logo {
-                 height: 65px;
+                 height: 60px; /* Logo del catálogo con scroll igual */
             }
+            
+            /* MOVER CONTENIDO PRINCIPAL HACIA ABAJO PARA EVITAR QUE EL HEADER LO TAPE (NUEVO AJUSTE) */
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
                 padding: 2rem 0;
-                margin-top: 90px; /* Aumentado desde 80px para dar más espacio al texto */
+                margin-top: 110px; /* AUMENTADO para dar más espacio al contenido principal */
             }
+
             .hero-visual {
                 display: block;
                 height: 350px;
@@ -856,20 +866,25 @@
             .catalog-intro { font-size: 1.1rem; }
         }
         @media (max-width: 480px) {
+            /* AJUSTES ADICIONALES PARA MÓVILES MUY PEQUEÑOS (NUEVOS AJUSTES) */
             .logo {
-                height: 100px;
-                padding: 0.5rem 0; /* Reducido el padding interno */
+                height: 60px;
+                padding: 0.2rem 0;
             }
             header.scrolled .logo {
-                height: 80px;
-                padding: 0.3rem 0; /* Reducido el padding interno */
+                height: 50px;
+                padding: 0.1rem 0;
             }
             #catalog-header .logo {
-                height: 100px;
+                height: 60px;
             }
             #catalog-header.scrolled .logo {
-                 height: 80px;
+                 height: 50px;
             }
+            .hero-content {
+                margin-top: 100px; /* Ajuste para el nuevo logo/header */
+            }
+
             .hero-text h1 { font-size: 1.8rem; }
             .section-title { font-size: 1.7rem; }
             .stats-grid { grid-template-columns: 1fr; }
@@ -1076,6 +1091,8 @@
                         <h2>Nuestra Historia</h2>
                         <p>Fundada en 2025, Nuvo ERP nació con una visión clara: convertirse en el socio tecnológico de confianza para empresas que buscan transformarse, no solo digitalizarse. En un mundo donde la tecnología avanza a pasos agigantados, entendemos que la verdadera innovación no reside en adoptar la última tendencia, sino en aplicar soluciones tecnológicas de manera inteligente, personalizada y estratégica.</p>
                         <p>Nuestro enfoque es profundamente humano. No somos simplemente proveedores de software; somos arquitectos de soluciones. Cada proyecto que emprendemos comienza con una profunda comprensión de tu negocio, sus desafíos únicos, su cultura y sus objetivos a largo plazo. Nuestra misión es empoderarte, dándote las herramientas y el conocimiento para que tú, como líder empresarial, puedas tomar decisiones informadas y construir un futuro sostenible y rentable.</p>
+                        <p>En Nuvo ERP, creemos que la tecnología debe ser invisible, pero su impacto debe ser inmenso. Diseñamos sistemas que se integran perfectamente en tu flujo de trabajo, eliminando fricciones y potenciando el talento de tu equipo. Nos especializamos en la personalización porque sabemos que no hay dos empresas iguales. Tu solución debe reflejar la singularidad de tu negocio.</p>
+                        <p>Desde nuestra fundación, hemos ayudado a más de 500 empresas a alcanzar nuevas alturas de eficiencia y crecimiento. Nuestro compromiso con la excelencia, la ética y la innovación continua nos ha convertido en un referente en el sector de la consultoría tecnológica y la automatización de procesos.</p>
                         <p>En Nuvo ERP, creemos que la tecnología debe ser invisible, pero su impacto debe ser inmenso. Diseñamos sistemas que se integran perfectamente en tu flujo de trabajo, eliminando fricciones y potenciando el talento de tu equipo. Nos especializamos en la personalización porque sabemos que no hay dos empresas iguales. Tu solución debe reflejar la singularidad de tu negocio.</p>
                         <p>Desde nuestra fundación, hemos ayudado a más de 500 empresas a alcanzar nuevas alturas de eficiencia y crecimiento. Nuestro compromiso con la excelencia, la ética y la innovación continua nos ha convertido en un referente en el sector de la consultoría tecnológica y la automatización de procesos.</p>
                     </div>
