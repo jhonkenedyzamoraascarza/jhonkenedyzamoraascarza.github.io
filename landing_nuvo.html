@@ -41,11 +41,9 @@
             box-shadow: 0 2px 20px rgba(30, 64, 175, 0.1);
             transition: all 0.3s ease;
         }
-        /* Ajuste de padding de header en scroll para evitar que el logo se comprima demasiado */
         header.scrolled {
-             padding: 1rem 5%;
+            padding: 1rem 5%;
         }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -54,27 +52,19 @@
             margin: 0 auto;
         }
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            letter-spacing: -1px;
-            cursor: pointer;
-            /* Estilos para el nuevo logo de imagen - AUMENTADO PARA ESCRITORIO */
             display: flex;
             align-items: center;
-            height: 170px; /* Altura más grande para PC */
-            transition: height 0.3s ease; /* Transición para scroll */
+            height: 170px;
+            transition: height 0.3s ease;
+            cursor: pointer;
         }
         .logo img {
-            height: 100%; /* La imagen ocupará la altura del contenedor */
+            height: 100%;
             width: auto;
         }
-        /* Ajuste del logo cuando el header está en scroll */
         header.scrolled .logo {
-            height: 100px; /* Ligeramente más pequeño al hacer scroll */
+            height: 100px;
         }
-
-
         .nav-links {
             display: flex;
             gap: 2.5rem;
@@ -120,7 +110,6 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
         }
-
         /* Hamburger menu */
         .hamburger {
             display: none;
@@ -128,7 +117,6 @@
             font-size: 1.8rem;
             cursor: pointer;
         }
-
         .mobile-menu {
             display: none;
             position: absolute;
@@ -142,7 +130,6 @@
             z-index: 1001;
             width: 220px;
         }
-
         .mobile-menu a {
             color: white;
             padding: 0.8rem 1.5rem;
@@ -150,11 +137,9 @@
             font-weight: 500;
             transition: background 0.2s;
         }
-
         .mobile-menu a:hover {
             background: rgba(96, 165, 250, 0.2);
         }
-
         .mobile-cta {
             background: var(--accent-blue);
             color: var(--bg-dark) !important;
@@ -166,7 +151,6 @@
             padding: 0.8rem 0;
             font-weight: 600;
         }
-
         /* Botón especial para Catálogo en servicios */
         .catalog-service-btn {
             background: var(--accent-blue);
@@ -180,13 +164,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
         .catalog-service-btn:hover {
             background: white;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
         }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -304,7 +286,6 @@
             margin-bottom: 1rem;
             color: var(--accent-blue);
         }
-
         /* Services Section */
         .services {
             padding: 6rem 5%;
@@ -397,7 +378,6 @@
             color: var(--text-light);
             line-height: 1.8;
         }
-
         /* Stats Section */
         .stats {
             background: linear-gradient(135deg, rgba(30, 64, 175, 0.95) 0%, rgba(28, 58, 138, 0.95) 100%);
@@ -439,7 +419,6 @@
             font-size: 1.1rem;
             opacity: 0.9;
         }
-
         /* Demo Form Section */
         .demo-section {
             padding: 6rem 5%;
@@ -544,7 +523,6 @@
             background: var(--accent-blue);
             color: var(--bg-dark);
         }
-
         /* About Us Page */
         .about-us-page {
             padding: 6rem 5%;
@@ -650,8 +628,7 @@
         .commitment-item p {
             color: rgba(255, 255, 255, 0.9);
         }
-
-        /* Catalog Page - FULL INDEPENDENT PAGE */
+        /* Catalog Page */
         #catalog-page {
             display: none;
             min-height: 100vh;
@@ -660,33 +637,34 @@
             position: relative;
             overflow: hidden;
         }
-        /* Header solo con logo en catálogo */
         #catalog-header {
             position: fixed;
             width: 100%;
             padding: 1.5rem 5%;
             z-index: 1000;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(30, 64, 175, 0.1);
+            transition: all 0.3s ease;
         }
         #catalog-header .logo {
-            /* Estilos de logo replicados para la cabecera del catálogo */
             display: flex;
             align-items: center;
-            height: 180px; /* Altura más grande para PC */
+            height: 180px;
             transition: height 0.3s ease;
         }
         #catalog-header .logo img {
             height: 100%;
             width: auto;
         }
-        /* Ajuste de padding de header en scroll (simulado para la página catálogo) */
-         #catalog-header.scrolled {
-             padding: 1rem 5%;
+        #catalog-header.scrolled {
+            padding: 1rem 5%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 2px 30px rgba(30, 64, 175, 0.2);
         }
         #catalog-header.scrolled .logo {
             height: 100px;
         }
-
-
         .catalog-bg {
             position: absolute;
             top: 0;
@@ -706,7 +684,7 @@
             padding: 6rem 5%;
             position: relative;
             z-index: 2;
-            margin-top: 80px;
+            margin-top: 140px; /* Ajustado para evitar que el título quede tapado */
         }
         .catalog-header {
             text-align: center;
@@ -769,7 +747,6 @@
             height: auto;
             display: block;
         }
-
         /* Footer */
         footer {
             background: #050b14;
@@ -781,7 +758,6 @@
             opacity: 0.7;
             margin: 0.5rem 0;
         }
-
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -801,31 +777,28 @@
                 transform: translateY(-15px) rotate(2deg);
             }
         }
-
-        /* Responsive */
-        @media (max-width: 968px) {
+        /* Responsive - Solo una regla para móviles */
+        @media (max-width: 768px) {
             .nav-links, .cta-button {
                 display: none;
             }
             .hamburger {
                 display: block;
             }
-
-            /* AJUSTE DEL TAMAÑO DEL LOGO PARA MÓVIL (PANTALLAS MEDIANAS) */
+            /* LOGO EN PÁGINA PRINCIPAL */
             .logo {
-                height: 70px; /* Tamaño adecuado para móvil */
+                height: 120px;
             }
             header.scrolled .logo {
-                height: 55px; /* Más pequeño al hacer scroll en móvil */
+                height: 100px;
             }
+            /* LOGO EN CATÁLOGO */
             #catalog-header .logo {
-                height: 70px;
+                height: 120px;
             }
             #catalog-header.scrolled .logo {
-                 height: 55px;
+                height: 100px;
             }
-
-
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -849,7 +822,6 @@
             .card-icon {
                 font-size: 1.8rem;
             }
-
             .hero-text h1 { font-size: 2.2rem; }
             .hero-text p { font-size: 1.05rem; }
             .hero-buttons {
@@ -874,40 +846,8 @@
             }
             .catalog-header h1 { font-size: 2.2rem; }
             .catalog-intro { font-size: 1.1rem; }
-        }
-        @media (max-width: 480px) {
-            /* AJUSTE DEL TAMAÑO DEL LOGO PARA MÓVIL PEQUEÑO */
-            .logo {
-                height: 35px;
-            }
-            header.scrolled .logo {
-                height: 30px;
-            }
-            #catalog-header .logo {
-                height: 35px;
-            }
-            #catalog-header.scrolled .logo {
-                 height: 30px;
-            }
-            /* Ajustes generales para pantallas muy pequeñas */
-            .hero-text h1 { font-size: 1.8rem; }
-            .section-title { font-size: 1.7rem; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .about-us-header h1 { font-size: 2.2rem; }
-            .catalog-header h1 { font-size: 2rem; }
-
-            .floating-card {
-                width: 120px;
-                padding: 0.8rem;
-            }
-            .card-icon {
-                font-size: 1.5rem;
-            }
-            .floating-card h4 {
-                font-size: 0.85rem;
-            }
-            .floating-card p {
-                font-size: 0.75rem;
+            .catalog-container {
+                margin-top: 140px;
             }
         }
     </style>
@@ -1132,7 +1072,6 @@
             <p>Teléfono: 973758493 | Dirección: Torrez Paz 848 - Cercado de Lima</p>
         </footer>
     </div>
-
     <div id="catalog-page">
         <header id="catalog-header">
             <div class="logo" onclick="showMainPage()">
@@ -1171,11 +1110,8 @@
             </div>
         </div>
     </div>
-
     <script>
-        // Funciones para cambiar entre páginas
         function showCatalogPage() {
-            // Asegurar visibilidad antes de ocultar y luego cambiar a catálogo
             document.getElementById('main-page').style.display = 'none';
             document.getElementById('catalog-page').style.display = 'block';
             window.scrollTo(0, 0);
@@ -1183,6 +1119,7 @@
         function showMainPage() {
             document.getElementById('catalog-page').style.display = 'none';
             document.getElementById('main-page').style.display = 'block';
+            window.scrollTo(0, 0);
         }
         function showCatalogContent(type) {
             document.getElementById('erp-content').classList.remove('active');
@@ -1193,18 +1130,13 @@
                 document.getElementById('web-content').classList.add('active');
             }
         }
-
-        // Menú móvil
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
-
         function closeMobileMenu() {
             document.getElementById('mobile-menu').style.display = 'none';
         }
-
-        // Cerrar menú si se hace clic fuera
         document.addEventListener('click', function(event) {
             const menu = document.getElementById('mobile-menu');
             const hamburger = document.querySelector('.hamburger');
@@ -1212,8 +1144,6 @@
                 menu.style.display = 'none';
             }
         });
-
-        // Scripts originales
         document.addEventListener('DOMContentLoaded', () => {
             const parallaxElements = document.querySelectorAll('.parallax-bg');
             window.addEventListener('scroll', () => {
@@ -1224,7 +1154,6 @@
                 });
             });
         });
-
         function handleSubmit(event) {
             event.preventDefault();
             alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.\nDatos recibidos:\n' +
@@ -1233,7 +1162,6 @@
                   'Empresa: ' + document.getElementById('empresa').value);
             event.target.reset();
         }
-
         document.querySelectorAll('a[href^="#"]:not([onclick])').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (document.getElementById('main-page').style.display === 'none') return;
@@ -1247,18 +1175,15 @@
                 }
             });
         });
-
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const catalogHeader = document.getElementById('catalog-header');
-
             if (window.scrollY > 50) {
                 // Main Header
                 header.classList.add('scrolled');
                 header.style.boxShadow = '0 2px 30px rgba(30, 64, 175, 0.2)';
                 header.style.background = 'rgba(0,0,0,0.9)';
-
-                // Catalog Header (si está visible)
+                // Catalog Header
                 if (catalogHeader) {
                     catalogHeader.classList.add('scrolled');
                 }
@@ -1267,8 +1192,7 @@
                 header.classList.remove('scrolled');
                 header.style.boxShadow = '0 2px 20px rgba(30, 64, 175, 0.1)';
                 header.style.background = 'linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%)';
-
-                 // Catalog Header (si está visible)
+                // Catalog Header
                 if (catalogHeader) {
                     catalogHeader.classList.remove('scrolled');
                 }
