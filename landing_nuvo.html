@@ -42,7 +42,7 @@
             transition: all 0.3s ease;
         }
         header.scrolled {
-            padding: 1rem 5%;
+             padding: 1rem 5%;
         }
         nav {
             display: flex;
@@ -52,11 +52,15 @@
             margin: 0 auto;
         }
         .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             height: 170px;
             transition: height 0.3s ease;
-            cursor: pointer;
         }
         .logo img {
             height: 100%;
@@ -628,7 +632,7 @@
         .commitment-item p {
             color: rgba(255, 255, 255, 0.9);
         }
-        /* Catalog Page */
+        /* Catalog Page - FULL INDEPENDENT PAGE */
         #catalog-page {
             display: none;
             min-height: 100vh;
@@ -637,10 +641,11 @@
             position: relative;
             overflow: hidden;
         }
+        /* Header solo con logo en catálogo - AJUSTADO PARA ESCRITORIO */
         #catalog-header {
             position: fixed;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%; /* Reducido */
             z-index: 1000;
             background: linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%);
             backdrop-filter: blur(10px);
@@ -650,20 +655,22 @@
         #catalog-header .logo {
             display: flex;
             align-items: center;
-            height: 180px;
+            height: 140px; /* Reducido desde 180px */
             transition: height 0.3s ease;
+            margin-top: -8px; /* Elevado ligeramente */
         }
         #catalog-header .logo img {
             height: 100%;
             width: auto;
         }
         #catalog-header.scrolled {
-            padding: 1rem 5%;
+            padding: 0.8rem 5%;
             background: rgba(0, 0, 0, 0.9);
             box-shadow: 0 2px 30px rgba(30, 64, 175, 0.2);
         }
         #catalog-header.scrolled .logo {
-            height: 100px;
+            height: 90px;
+            margin-top: -6px;
         }
         .catalog-bg {
             position: absolute;
@@ -684,7 +691,7 @@
             padding: 6rem 5%;
             position: relative;
             z-index: 2;
-            margin-top: 140px; /* Ajustado para evitar que el título quede tapado */
+            margin-top: 100px; /* Ajustado para evitar que el header tape el título */
         }
         .catalog-header {
             text-align: center;
@@ -777,27 +784,25 @@
                 transform: translateY(-15px) rotate(2deg);
             }
         }
-        /* Responsive - Solo una regla para móviles */
-        @media (max-width: 768px) {
+        /* Responsive */
+        @media (max-width: 968px) {
             .nav-links, .cta-button {
                 display: none;
             }
             .hamburger {
                 display: block;
             }
-            /* LOGO EN PÁGINA PRINCIPAL */
             .logo {
-                height: 120px;
+                height: 70px;
             }
             header.scrolled .logo {
-                height: 100px;
+                height: 55px;
             }
-            /* LOGO EN CATÁLOGO */
             #catalog-header .logo {
-                height: 120px;
+                height: 70px;
             }
             #catalog-header.scrolled .logo {
-                height: 100px;
+                 height: 55px;
             }
             .hero-content {
                 grid-template-columns: 1fr;
@@ -846,8 +851,37 @@
             }
             .catalog-header h1 { font-size: 2.2rem; }
             .catalog-intro { font-size: 1.1rem; }
-            .catalog-container {
-                margin-top: 140px;
+        }
+        @media (max-width: 480px) {
+            .logo {
+                height: 100px;
+            }
+            header.scrolled .logo {
+                height: 80px; /* Corregido: antes decía 800px */
+            }
+            #catalog-header .logo {
+                height: 100px;
+            }
+            #catalog-header.scrolled .logo {
+                 height: 80px;
+            }
+            .hero-text h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.7rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .about-us-header h1 { font-size: 2.2rem; }
+            .catalog-header h1 { font-size: 2rem; }
+            .floating-card {
+                width: 120px;
+                padding: 0.8rem;
+            }
+            .card-icon {
+                font-size: 1.5rem;
+            }
+            .floating-card h4 {
+                font-size: 0.85rem;
+            }
+            .floating-card p {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -1119,7 +1153,6 @@
         function showMainPage() {
             document.getElementById('catalog-page').style.display = 'none';
             document.getElementById('main-page').style.display = 'block';
-            window.scrollTo(0, 0);
         }
         function showCatalogContent(type) {
             document.getElementById('erp-content').classList.remove('active');
@@ -1179,20 +1212,16 @@
             const header = document.querySelector('header');
             const catalogHeader = document.getElementById('catalog-header');
             if (window.scrollY > 50) {
-                // Main Header
                 header.classList.add('scrolled');
                 header.style.boxShadow = '0 2px 30px rgba(30, 64, 175, 0.2)';
                 header.style.background = 'rgba(0,0,0,0.9)';
-                // Catalog Header
                 if (catalogHeader) {
                     catalogHeader.classList.add('scrolled');
                 }
             } else {
-                // Main Header
                 header.classList.remove('scrolled');
                 header.style.boxShadow = '0 2px 20px rgba(30, 64, 175, 0.1)';
                 header.style.background = 'linear-gradient(135deg, var(--bg-dark) 0%, var(--dark-blue) 100%)';
-                // Catalog Header
                 if (catalogHeader) {
                     catalogHeader.classList.remove('scrolled');
                 }
