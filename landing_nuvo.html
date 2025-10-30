@@ -792,7 +792,7 @@
             .hamburger {
                 display: block;
             }
-            
+
             /* REDUCIENDO ALTURA DEL HEADER MÓVIL Y AUMENTANDO LOGO (AJUSTES PARA LOGO MÁS GRANDE) */
             header {
                 padding: 0 5%; /* Quitamos padding vertical para maximizar el espacio del logo */
@@ -802,11 +802,11 @@
             }
             /* AJUSTE CLAVE: Altura del logo maximizada */
             .logo {
-                height: 80px; /* Tamaño base del logo ajustado */
+                height: 120px; /* Tamaño base del logo ajustado */
                 padding: 0.1rem 0; /* Mínimo padding vertical */
             }
             header.scrolled .logo {
-                height: 60px; /* Tamaño del logo con scroll */
+                height: 90px; /* Tamaño del logo con scroll */
                 padding: 0.1rem 0;
             }
             /* El logo en el catálogo también se ajusta */
@@ -817,18 +817,18 @@
                 padding: 0 5%; /* Quitamos padding vertical para maximizar el espacio del logo con scroll */
             }
             #catalog-header .logo {
-                height: 80px; /* Tamaño base del logo del catálogo */
+                height: 120px; /* Tamaño base del logo del catálogo */
             }
             #catalog-header.scrolled .logo {
-                 height: 60px; /* Tamaño del logo del catálogo con scroll */
+                 height: 90px; /* Tamaño del logo del catálogo con scroll */
             }
-            
+
             /* MOVER CONTENIDO PRINCIPAL HACIA ABAJO PARA EVITAR QUE EL HEADER LO TAPE (AJUSTE) */
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
                 padding: 2rem 0;
-                margin-top: 100px; /* Ajustado para el nuevo tamaño de header */
+                margin-top: 110px; /* Ajustado para el nuevo tamaño de header */
             }
 
             .hero-visual {
@@ -878,20 +878,20 @@
             /* AJUSTES ADICIONALES PARA MÓVILES MUY PEQUEÑOS */
             /* El header ya tiene padding vertical 0 de la media query superior */
             .logo {
-                height: 70px; /* Logo más grande en vista móvil muy pequeña por defecto */
+                height: 100px; /* Logo más grande en vista móvil muy pequeña por defecto */
             }
             header.scrolled .logo {
-                height: 55px; /* Logo más grande en vista móvil muy pequeña con scroll */
+                height: 85px; /* Logo más grande en vista móvil muy pequeña con scroll */
             }
             #catalog-header .logo {
-                height: 70px;
+                height: 100px;
             }
             #catalog-header.scrolled .logo {
-                height: 55px;
+                height: 85px;
             }
-            
+
             .hero-content {
-                margin-top: 90px; /* Ajuste para el nuevo logo/header */
+                margin-top: 100px; /* Ajuste para el nuevo logo/header */
             }
 
             .hero-text h1 { font-size: 1.8rem; }
